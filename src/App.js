@@ -11,6 +11,7 @@ import kid_banner from "./Components/Assets/banner_kids.png";
 import LoginSignup from "./Pages/LoginSignup";
 import Checkout from "./Components/CartItems/Checkout";
 //hey
+//https://e-commer-backend-1erh.onrender.com
 export const backend_url = 'https://e-commer-backend-1erh.onrender.com';
 export const currency = '₹';
 
