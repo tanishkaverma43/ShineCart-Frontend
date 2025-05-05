@@ -10,19 +10,10 @@ const DescriptionBox = () => {
       </div>
       <div className="descriptionbox-description">
         <p>
-          An e-commerce website is an online platform that facilitates the
-          buying and selling of products or services over the internet. It
-          serves as a virtual marketplace where businesses and individuals can
-          showcase their products, interact with customers, and conduct
-          transactions without the need for a physical presence. E-commerce
-          websites have gained immense popularity due to their convenience,
-          accessibility, and the global reach they offer.
+        Our jewellery e-commerce platform is your destination for timeless elegance and modern craftsmanship. From dazzling diamond rings to intricate gold necklaces and trendy fashion pieces, we bring you a curated collection of fine and fashion jewellery suited for every occasion.
         </p>
         <p>
-          E-commerce websites typically display products or services along with
-          detailed descriptions, images, prices, and any available variations
-          (e.g., sizes, colors). Each product usually has its own dedicated page
-          with relevant information.
+        Each piece is crafted with precision and passion, accompanied by detailed product descriptions, high-resolution images, and style variations to help you make the perfect choice. Enjoy a seamless shopping experience, secure checkout, and doorstep delivery—because luxury should be just a click away.
         </p>
       </div>
     </div>

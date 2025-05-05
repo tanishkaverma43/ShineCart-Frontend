@@ -1,152 +1,170 @@
-.nav{
+/* Base Navbar Styling */
+.nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 1px 3px -2px black;
-    padding: 15px 70px;
+    padding: 18px 60px;
+    background-color: #55c1e1;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    position: relative;
+    z-index: 100;
+    transition: all 0.3s ease;
+    font-family: 'Segoe UI', sans-serif;
 }
-.nav-logo{
+
+/* Logo Section */
+.nav-logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
 }
-.nav-logo img{
-    width: 45px;
+
+.nav-logo img {
+    width: 40px;
 }
-.nav-logo p{
-    color: #171717;
-    font-size: 28px;
+
+.nav-logo p {
+    font-size: 24px;
     font-weight: 600;
-}
-.nav-menu{
-    display: flex;
-    align-items: center;
-    list-style: none;
-    gap: 40px;
-    color: #626262;
-    font-size: 16px;
-    font-weight: 500;
+    color: #333;
 }
 
-.nav-menu li{
+/* Menu Links */
+.nav-menu {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 3px;
-    cursor: pointer;
-}
-.nav-menu hr{
-    border: none;
-    width: 80%;
-    height: 3px;
-    border-radius: 10px;
-    background: #FF4141;
-}
-.nav-login-cart{
-    display: flex;
-    align-items: center;
     gap: 30px;
-}
-
-.nav-login-cart button{
-    width: 120px;
-    height: 40px;
-    outline: none;
-    border: 1px solid #7a7a7a;
-    border-radius: 75px;
-    color: #515151;
+    list-style: none;
     font-size: 16px;
     font-weight: 500;
-    background: white;
+    color: #444;
+    transition: all 0.3s ease;
+}
+
+.nav-menu li {
     cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 8px;
+    transition: background 0.3s ease;
 }
-.nav-login-cart button:active{
-    background: #f3f3f3;
+
+.nav-menu li:hover {
+    background: #f0f0f0;
 }
-.nav-login-cart img{
-    width: 35px;
+
+/* Login & Cart */
+.nav-login-cart {
+    display: flex;
+    align-items: center;
+    gap: 25px;
 }
-.nav-cart-count{
+
+.nav-login-cart button {
+    padding: 10px 22px;
+    border-radius: 30px;
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.nav-login-cart button:hover {
+    background: #eaeaea;
+}
+
+.nav-login-cart img {
+    width: 28px;
+}
+
+.nav-cart-count {
+    position: relative;
+    top: -10px;
+    left: -18px;
     width: 18px;
     height: 18px;
-    border-radius: 50%;
+    font-size: 12px;
+    background-color: #FF3E3E;
+    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: -30px;
-    margin-left: -40px;
-    font-size: 14px;
-    background: red;
-    color: white;
+    border-radius: 50%;
 }
-.nav-dropdown{
+
+/* Hamburger Icon */
+.nav-dropdown {
     display: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
-/* -------- media query---------- */
-@media(max-width:900px){
-    .nav{
-        padding: 15px 40px;
+/* Media Queries */
+@media (max-width: 900px) {
+    .nav {
+        padding: 16px 30px;
     }
-    .nav-menu{
-        gap: 15px;
+
+    .nav-menu {
+        gap: 20px;
     }
 }
 
-@media(max-width:750px){
-    .nav{
-        padding: 15px 20px;
+@media (max-width: 750px) {
+    .nav {
+        padding: 14px 20px;
     }
-    .nav-login-cart{
-        gap: 15px;
-    }
-    .nav-dropdown{
+
+    .nav-dropdown {
         display: block;
-        width: 30px;
-        rotate: -90deg;
-        transition: 0.5s;
-    } 
-    .nav-menu{
+        width: 24px;
+        transform: rotate(0deg);
+    }
+
+    .nav-menu {
         display: none;
-        height: 80px;
+        flex-direction: column;
+        align-items: center;
+        background: #fff;
         width: 100%;
         position: absolute;
-        background-color: white;
-        justify-content: center;
         top: 60px;
         left: 0;
+        padding: 10px 0;
+        box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
     }
-    .nav-menu-visible{
+
+    .nav-menu-visible {
         display: flex;
     }
-    .nav-dropdown.open{
+
+    .nav-dropdown.open {
         transform: rotate(90deg);
     }
-    .nav-cart-count{
-        margin-left: -25px;
+
+    .nav-login-cart {
+        gap: 12px;
+    }
+
+    .nav-cart-count {
+        left: -12px;
     }
 }
 
-@media(max-width:500px){
-    .nav{
-        padding: 15px 15px;
+@media (max-width: 500px) {
+    .nav {
+        padding: 12px 14px;
     }
 
-    .nav-logo img{
-        width: 30px;
+    .nav-logo img {
+        width: 28px;
     }
-    .nav-logo p{
+
+    .nav-logo p {
         font-size: 18px;
     }
-    .nav-menu-visible{
-        height: 70px;
-        top: 60px;
-    }
-    .nav-login-cart{
-        transform: scale(0.8);
-    } 
-    .nav-login-cart{
-        gap: 10px;
+
+    .nav-login-cart {
+        transform: scale(0.85);
     }
 }
