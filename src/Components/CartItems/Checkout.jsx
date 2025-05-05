@@ -10,7 +10,7 @@ const Checkout = () => {
 
   const handlePayment = async () => {
     const options = {
-      key: "rzp_test_2j07VA04NybNiL", // Replace with your Razorpay API Key
+      key: "rzp_test_IF1DBodiUgtI93", // Replace with your Razorpay API Key
       amount: totalAmount * 100, // Convert to smallest currency unit (paise)
       currency: "INR",
       name: "Your Shop Name",
