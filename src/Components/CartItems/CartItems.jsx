@@ -3,38 +3,14 @@ import "./CartItems.css";
 import cross_icon from "../Assets/cart_cross_icon.png";
 import { ShopContext } from "../../Context/ShopContext";
 import { backend_url, currency } from "../../App";
+import { useNavigate } from "react-router-dom";
 
 const CartItems = () => {
   const { products, cartItems, removeFromCart, getTotalCartAmount } = useContext(ShopContext);
+  const navigate = useNavigate();
 
- 
-  const loadRazorpay = () => {
-    const totalAmount = getTotalCartAmount() * 100; 
-
-    const options = {
-      key: "rzp_test_IF1DBodiUgtI93", 
-      amount: totalAmount,
-      currency: "INR",
-      name: "Digital Diner",
-      description: "Thank you for your purchase",
-      image: "https://yourlogo.url", 
-      handler: function (response) {
-        alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
-        
-        Object.keys(cartItems).forEach(id => removeFromCart(id));
-      },
-      prefill: {
-        name: "Tanishka Verma",
-        email: "tanishka@example.com",
-        contact: "9999999999"
-      },
-      theme: {
-        color: "#0a9279"
-      }
-    };
-
-    const rzp = new window.Razorpay(options);
-    rzp.open();
+  const handleCheckout = () => {
+    navigate("/checkout");
   };
 
   return (
@@ -58,7 +34,7 @@ const CartItems = () => {
                 <p>{currency}{e.new_price}</p>
                 <button className="cartitems-quantity">{cartItems[e.id]}</button>
                 <p>{currency}{e.new_price * cartItems[e.id]}</p>
-                <img onClick={() => { removeFromCart(e.id) }} className="cartitems-remove-icon" src={cross_icon} alt="" />
+                <img onClick={() => removeFromCart(e.id)} className="cartitems-remove-icon" src={cross_icon} alt="Remove" />
               </div>
               <hr />
             </div>
@@ -66,7 +42,7 @@ const CartItems = () => {
         }
         return null;
       })}
-
+      
       <div className="cartitems-down">
         <div className="cartitems-total">
           <h1>Cart Totals</h1>
@@ -86,13 +62,12 @@ const CartItems = () => {
               <h3>{currency}{getTotalCartAmount()}</h3>
             </div>
           </div>
-          {/* ✅ Razorpay trigger button */}
-          <button onClick={loadRazorpay}>PROCEED TO CHECKOUT</button>
+          <button onClick={handleCheckout}>PROCEED TO CHECKOUT</button>
         </div>
         <div className="cartitems-promocode">
-          <p>If you have a promo code, Enter it here</p>
+          <p>If you have a promo code, enter it here</p>
           <div className="cartitems-promobox">
-            <input type="text" placeholder="promo code" />
+            <input type="text" placeholder="Promo Code" />
             <button>Submit</button>
           </div>
         </div>
