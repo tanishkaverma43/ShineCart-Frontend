@@ -6,25 +6,19 @@ import { currency } from "../../App";
 const Checkout = () => {
   const { getTotalCartAmount } = useContext(ShopContext);
   const navigate = useNavigate();
-  const rawAmount = getTotalCartAmount();
-  const maxAllowed = 99999; // Razorpay test mode limit
+  const totalAmount = getTotalCartAmount();
 
   const handlePayment = async () => {
-    if (rawAmount > maxAllowed) {
-      alert(`Test mode supports a maximum payment of ₹${maxAllowed}. Please reduce your cart value.`);
-      return;
-    }
-
     const options = {
-      key: "rzp_test_IF1DBodiUgtI93", // Razorpay Test Key
-      amount: rawAmount * 100, // Convert to paise
+      key: "rzp_test_IF1DBodiUgtI93", // Replace with your Razorpay API Key
+      amount: totalAmount * 100, // Convert to smallest currency unit (paise)
       currency: "INR",
       name: "Your Shop Name",
       description: "Payment for your order",
       image: "https://yourwebsite.com/logo.png",
       handler: function (response) {
         alert(`Payment Successful! Payment ID: ${response.razorpay_payment_id}`);
-        navigate("/");
+        navigate("/"); // Redirect after payment
       },
       prefill: {
         name: "Customer Name",
@@ -45,9 +39,7 @@ const Checkout = () => {
       <div className="checkout">
         <h1>Checkout</h1>
         <div className="checkout-summary">
-          <p>
-            Total Amount: <strong>{currency}{rawAmount}</strong>
-          </p>
+          <p>Total Amount: <strong>{currency}{totalAmount}</strong></p>
           <button onClick={handlePayment} className="pay-button">
             Pay with Google Pay / UPI
           </button>
