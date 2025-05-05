@@ -9,7 +9,7 @@ const ShopCategory = (props) => {
   const [allproducts, setAllProducts] = useState([]);
 
   const fetchInfo = () => { 
-    fetch('https://e-commer-backend-1erh.onrender.com/allproducts') 
+    fetch('https://shinecart-backend.onrender.com/allproducts') 
             .then((res) => res.json()) 
             .then((data) => setAllProducts(data))
     }

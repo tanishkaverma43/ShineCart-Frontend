@@ -12,7 +12,7 @@ import LoginSignup from "./Pages/LoginSignup";
 import Checkout from "./Components/CartItems/Checkout";
 //hey
 //https://e-commer-backend-1erh.onrender.com
-export const backend_url = 'https://e-commer-backend-1erh.onrender.com';
+export const backend_url = 'https://shinecart-backend.onrender.com';
 export const currency = '₹';
 
 function App() {
