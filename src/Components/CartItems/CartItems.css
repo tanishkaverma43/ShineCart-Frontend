@@ -95,7 +95,7 @@
     width: 100%;
     height: 48px;
     border: none;
-    background: #ff5a5a;
+    background: #367397;
     color: white;
     font-weight: 600;
     border-radius: 6px;
@@ -103,7 +103,7 @@
     transition: background 0.3s ease;
   }
   .cartitems-total button:hover {
-    background: #e04c4c;
+    background: #72c1d5;
   }
   
   /* Promo Code Box */
