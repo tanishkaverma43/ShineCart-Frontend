@@ -8,7 +8,6 @@ const Checkout = () => {
   const navigate = useNavigate();
   const rawAmount = getTotalCartAmount();
   const maxAllowed = 99999; // Razorpay test mode limit
-  const totalAmount = rawAmount > maxAllowed ? maxAllowed : rawAmount;
 
   const handlePayment = async () => {
     if (rawAmount > maxAllowed) {
@@ -17,8 +16,8 @@ const Checkout = () => {
     }
 
     const options = {
-      key: "rzp_test_IF1DBodiUgtI93", // Your Razorpay API Key
-      amount: totalAmount * 100, // in paise
+      key: "rzp_test_IF1DBodiUgtI93", // Razorpay Test Key
+      amount: rawAmount * 100, // Convert to paise
       currency: "INR",
       name: "Your Shop Name",
       description: "Payment for your order",
